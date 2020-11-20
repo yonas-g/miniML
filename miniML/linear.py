@@ -1,18 +1,29 @@
 import numpy as np
-from optimizer import Gradient
+from optim import SDG
 
-# each model shoudl have fit and predict
+# each model should have fit and predict
+# regularized
 
 
 class LinearRegression:
     '''
     LinearRegression
     '''
-    # def fit()
-    # def predict()
+
+    def __init__(self):
+        self.theta = None
+
+    def fit(self, X, y):
+        theta_best_svd, residuals, rank, s = np.linalg.lstsq(
+            X, y, rcond=1e-6)
+
+        self.theta = theta_best_svd
+
+    def predict(self, X):
+        return X.dot(self.theta)
 
     def __cost(self, X, y, theta):
-        m, n = self.X.shape
+        m, n = X.shape
         h = X.dot(theta)
 
         J = 1/(2*m)*np.sum((h - y)**2)
