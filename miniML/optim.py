@@ -82,9 +82,9 @@ class SGD:
 
         for iter in range(self.epoch):
             for i in range(m):
-                # shuffle
+                # get single random instance
                 random_index = np.random.randint(m)
-                xi = X_b[random_index:random_index+1]
+                xi = X[random_index:random_index+1]
                 yi = y[random_index:random_index+1]
 
                 j, grad = self.cost(xi, yi, theta)
