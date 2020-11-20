@@ -73,6 +73,7 @@ class SGD:
         features and the labels jointly), then go through it instance by instance, then
         shuffle it again, and so on. However, this approach generally converges more
         slowly.
+        Ref: Hands on Machine Leanring with Scikit-Learn, Keras, and TensorFlow by Aurelien Geron
         '''
         if fit_intercept:
             X = np.c_[np.ones((X.shape[1], 1)), X]
