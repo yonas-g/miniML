@@ -1,5 +1,5 @@
 import numpy as np
-from optim import SDG
+from optim import SGD
 
 # each model should have fit and predict
 # regularized
